@@ -1,0 +1,786 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  all: inherit;
+}
+
+p > a {
+  display: inline-flex;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+header {
+  position: fixed;
+  background-color: black;
+  height: 2.8em;
+  width: 100%;
+  top: 0;
+  z-index: 3;
+  border-bottom: 1px solid white;
+  transition: all 0.3s ease-in-out;
+  -webkit-box-shadow: 10px 10px 23px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 23px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 23px 0px rgba(0, 0, 0, 0.75);
+}
+
+header h1 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-style: italic;
+  color: white;
+}
+
+header figure {
+  display: flex;
+  justify-content: flex-start;
+}
+
+header figure img {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  align-self: center;
+  filter: drop-shadow(1px 1px 1px black);
+}
+
+main {
+  position: relative;
+  margin: 5%;
+}
+
+body {
+  background-image: url("../media/fondoPagina.jpg");
+  background-repeat: repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+footer {
+  border-top: 1px solid white;
+  background-color: black;
+  color: white;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+footer > h2 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-style: italic;
+  color: white;
+  text-align: center;
+}
+
+footer article.footer_copyright section {
+  position: relative;
+  text-align: center;
+  border-bottom: 1px solid white;
+  padding: 0 0 1em 0;
+}
+
+footer article.footer_links section {
+  position: relative;
+  text-align: center;
+}
+
+footer article.footer_links h2 {
+  text-decoration: underline;
+  font-variant: small-caps;
+}
+
+button:not(#header_desplegable) {
+  width: 28ch;
+  padding: 2.75%;
+  border: none;
+  background-color: rgb(94, 171, 174);
+  color: white;
+  font-weight: 700;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: cadetblue;
+  cursor: pointer;
+}
+
+.header_nav {
+  position: relative;
+  top: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  opacity: 0;
+  display: none;
+  transition: opacity 0.3s ease-in-out;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: center;
+}
+
+.header_nav a {
+  position: relative;
+  color: white;
+  transform: scaleX(0.95);
+  transition: all 0.5s ease-in-out;
+  font-weight: 400;
+  font-size: 19px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header_nav a[active] {
+  font-weight: 600 !important;
+}
+
+.header_nav a::before {
+  content: "";
+  position: absolute;
+  top: 1.4em;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to left, white, wheat, white);
+  z-index: 1;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.5s ease-in-out;
+}
+
+.header_nav a:hover {
+  transform: scaleX(1);
+  cursor: pointer;
+}
+
+.header_nav a:hover::before {
+  transform: scaleX(1);
+}
+
+.footer_links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: space-around;
+  align-items: stretch;
+  padding: 2%;
+}
+
+.footer_links a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.footer_vertical--line {
+  position: relative;
+  margin: 1.8% 0 0 0;
+  background-color: white;
+  height: 4em;
+  width: 1px;
+}
+
+.cuenta_form--iniciarSesion {
+  background-color: white;
+  border-radius: 15px;
+  -webkit-box-shadow: 10px 10px 23px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 23px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 23px 0px rgba(0, 0, 0, 0.75);
+  padding: 1% 0 2% 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: space-around;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.cuenta_form--iniciarSesion > img {
+  position: relative;
+  height: 50%;
+  width: 50%;
+  filter: drop-shadow(3px 3px 7px black);
+  border-radius: 10px;
+}
+
+.cuenta_form--iniciarSesion section > h3 {
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cuenta_form--iniciarSesion > section textarea {
+  height: 10.4em;
+  width: 23em;
+  resize: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 0;
+  border: 2px solid black;
+  outline: none;
+  text-align: center;
+  transition: all .3s ease-in-out;
+}
+
+.cuenta_form--iniciarSesion > section textarea:focus {
+  border-radius: 35px;
+  border: 2px solid cadetblue;
+}
+
+.cuenta_form--iniciarSesion section form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 1ch;
+}
+
+.cuenta_form--iniciarSesion section form input[type="submit"] {
+  width: 28ch;
+  padding: 2.75%;
+  border: none;
+  background-color: rgb(94, 171, 174);
+  color: white;
+  font-weight: 700;
+  transition: all 0.3s ease-in-out;
+}
+
+.cuenta_form--iniciarSesion section form input[type="submit"]:hover {
+  background-color: cadetblue;
+  cursor: pointer;
+}
+
+.cuenta_form--vertical-line {
+  position: relative;
+  height: 20em;
+  width: 1px;
+  background-color: black;
+}
+
+.cuenta_form--iniciarSesion section form label > input[type="text"],
+.cuenta_form--iniciarSesion section form label > input[type="date"],
+.cuenta_form--iniciarSesion section form label > input[type="password"] {
+  position: relative;
+  width: 28ch;
+  transform: scaleX(0.95);
+  transition: all 0.5s ease-in-out;
+  text-align: center;
+  border: none;
+  border-bottom: 2px solid black;
+  outline: none;
+  padding: 1.3%;
+  transition: all 0.3s ease-in-out;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cuenta_form--iniciarSesion section form label > input[type="text"]:focus,
+.cuenta_form--iniciarSesion section form label > input[type="date"]:focus,
+.cuenta_form--iniciarSesion section form label > input[type="password"]:focus {
+  position: relative;
+  transform: scaleX(1);
+  border-bottom: 1px solid cadetblue;
+}
+
+.cuenta_form--iniciarSesion p:not(#cuenta_form--error > p) {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cuenta_form--link {
+  color: cadetblue;
+  font-weight: 500;
+}
+
+.cuenta_form--link:hover {
+  color: rgb(100, 174, 176);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.cuenta_form--iniciarSesion section form label {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 2%;
+}
+
+.cuenta_form--iniciarSesion section h2 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-variant: small-caps;
+}
+
+.cuenta_form--iniciarSesion > img {
+  position: relative;
+  width: 100%;
+  height: 50%;
+}
+
+.perfil_usuario--article {
+  background-color: white;
+  padding: 2%;
+  border-radius: 25px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.perfil_usuario--section{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.perfil_usuario--article figure {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1ch;
+}
+
+.perfil_usuario--article figure > img {
+  width: 64px;
+  height: 64px;
+  border-radius: 100px;
+  filter: drop-shadow(1px 1px 1px black);
+}
+
+.perfil_usuario--section form input[type="submit"] {
+  width: 28ch;
+  padding: 2.75%;
+  border: none;
+  background-color: rgb(94, 171, 174);
+  color: white;
+  font-weight: 700;
+  transition: all 0.3s ease-in-out;
+}
+
+.perfil_usuario--section form input[type="submit"]:hover {
+  background-color: cadetblue;
+  cursor: pointer;
+}
+
+.perfil_usuario--section form input[type="reset"] {
+  width: 28ch;
+  padding: 2.75%;
+  border: none;
+  background-color: rgb(174, 94, 94);
+  color: white;
+  font-weight: 700;
+  transition: all 0.3s ease-in-out;
+}
+
+.perfil_usuario--section form input[type="reset"]:hover {
+  background-color: rgb(160, 95, 95);
+  cursor: pointer;
+}
+
+.perfil_usuario--section form label > input[type="text"],
+.perfil_usuario--section form label > input[type="date"],
+.perfil_usuario--section form label > input[type="password"] {
+  position: relative;
+  width: 28ch;
+  transform: scaleX(0.95);
+  transition: all 0.5s ease-in-out;
+  text-align: center;
+  border: none;
+  border-bottom: 2px solid black;
+  outline: none;
+  padding: 1.3%;
+  transition: all 0.3s ease-in-out;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.perfil_usuario--section form label > input[type="text"]:focus,
+.perfil_usuario--section form label > input[type="date"]:focus,
+.perfil_usuario--section form label > input[type="password"]:focus {
+  position: relative;
+  transform: scaleX(1);
+  border-bottom: 1px solid cadetblue;
+}
+
+.perfil_usuario--buttons {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: space-around;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1ch;
+}
+
+.politicas_main {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 1.5%;
+  background-color: white;
+  border-radius: 25px;
+}
+
+.index {
+  background-color: white;
+  border-radius: 25px;
+}
+
+.index > figure h1 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-style: italic;
+  color: black;
+  text-shadow: 1px 1px 1px black;
+}
+
+.index > h3 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: black;
+  text-align: center;
+}
+
+.index > p {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: black;
+  text-align: center;
+}
+
+.index > figure {
+  display: flex;
+  padding: 1%;
+  justify-content: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-content: space-around;
+  align-items: baseline;
+}
+
+.index > figure img {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  align-self: center;
+  filter: invert();
+}
+
+.index button {
+  position: relative;
+  padding: 1%;
+  height: 50%;
+}
+
+.index h2 {
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  padding: 1.5%;
+}
+
+.index_carrusel {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: space-around;
+  justify-content: space-around;
+  align-items: center;
+  gap: 4ch;
+}
+
+.index_carrusel > button {
+  padding: 1% !important;
+  height: auto !important;
+}
+
+.index_carrusel--galeria {
+  position: relative;
+  display: block;
+  width: 1024px;
+  height: 480px;
+  overflow: hidden;
+  z-index: 2;
+  border-radius: 25px;
+  -webkit-box-shadow: 10px 10px 64px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 64px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 64px 0px rgba(0, 0, 0, 0.75);
+}
+
+.index_carrusel--imagen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.index_carrusel--imagen > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1024px;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 25px;
+}
+
+.index_carrusel--imagen > p {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 600;
+  font-size: 1.2em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  padding: 0.5em 1em;
+  text-align: center;
+}
+
+.index_carrusel--active {
+  opacity: 1;
+}
+
+.index_playlists {
+  padding: 1%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.index_vertical--line {
+  position: relative;
+  height: 25ch;
+  width: 1px;
+  background-color: black;
+}
+
+.index_horizontal--line {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background-color: black;
+}
+
+.index_sobre-nosotros {
+  display: block;
+}
+
+.index_sobre-nosotros section {
+  position: relative;
+  text-align: justify;
+  padding: 0 5% 5% 5%;
+}
+
+.index_sobre-nosotros section h2 {
+  text-align: left;
+}
+
+.index_sobre-nosotros section p {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 25px;
+}
+
+.index_guitarra {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5%;
+}
+
+.index_guitarra h3 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-size: 27px;
+}
+
+.index_guitarra p {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 23px;
+}
+
+.index_guitarra > img {
+    position: relative;
+    width: 55%;
+    height: auto;
+    border-radius: 25px;
+    filter: drop-shadow(1px 1px 1px black);
+}
+
+.index_guitarra--videos {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2ch;
+}
+
+.index_guitarra section {
+  padding: 1%;
+}
+
+.index_guitarra section ul li {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 23px;
+}
+
+.index_guitarra section ul span {
+  font-style: italic;
+  font-weight: 700;
+}
+
+.contacto_form {
+  display: flex;
+  flex-direction: column!important;
+}
+
+.contacto_form > section h2{
+  text-align: center;
+}
+
+.link {
+  color: cadetblue!important;
+}
+
+.link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#cuenta_form--error {
+  display: none;
+  margin: 1ch;
+  padding: 1ch;
+  border: 1px solid red;
+  background-color: rgb(252, 110, 110);
+  border-radius: 15px;
+  transition: all 0.3s ease-in-out;
+}
+
+#cuenta_form--error > p {
+  font-weight: 500;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#form--register {
+  display: none;
+}
+
+#header_desplegable {
+  position: fixed;
+  top: 0;
+  right: 1%;
+  border: none;
+  background: none;
+  color: white;
+  width: 48px;
+  height: 48px;
+  border: none;
+  background: none;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  main {
+    margin: 20% 5% 5% 5%;
+  }
+
+  .footer_links {
+    flex-direction: column;
+  }
+
+  .footer_vertical--line {
+    margin: 1em 5em 1em 5em;
+    height: 1px;
+    width: 13.2em;
+  }
+
+  .cuenta_form--iniciarSesion {
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cuenta_form--iniciarSesion section {
+    align-self: center;
+    width: 100%;
+  }
+
+  .cuenta_form--vertical-line {
+    position: relative;
+    width: 20em;
+    height: 1px;
+    background-color: black;
+  }
+
+  .cuenta_form--iniciarSesion section section form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 1ch;
+    align-content: stretch;
+  }
+
+  .cuenta_form--iniciarSesion p:not(#cuenta_form--error > p) {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    text-align: center;
+  }
+
+  .cuenta_form--iniciarSesion > img {
+    height: 75%;
+    width: 75%;
+    margin: 10%;
+  }
+
+  .cuenta_form--iniciarSesion section h2 {
+    text-align: center;
+  }
+
+  .index_carrusel--imagen > img {
+    width: 100%;
+    height: 240px;
+  }
+
+  .index_carrusel--galeria {
+    width: 97%;
+    height: 240px;
+  }
+
+  .index_guitarra--videos {
+    flex-direction: column;
+  }
+
+  .index_vertical--line {
+    width: 100%;
+    height: 1px;
+    margin: 1%;
+  }
+
+  .index_playlists {
+    flex-direction: column;
+  }
+
+  .index_carrusel--imagen > p {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .index_guitarra > img {
+    width: 95%;
+    height: auto;
+  }
+}
